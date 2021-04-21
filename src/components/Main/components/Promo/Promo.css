@@ -1,0 +1,36 @@
+.promo {
+    background: #073042;
+    height: 560px;
+}
+
+.promo__content{
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto 0 auto;
+    position: relative;
+    border: 1px solid red;
+}
+
+.promo__title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    width: 626px;
+    text-align: left;
+    margin: 50px 0 0 70px;
+    position: absolute;
+}
+
+.promo__picture {
+    background-image: url(../../../../images/promo-logo.svg);
+    width: 722px;
+    height: 244px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 70px 60px 0;
+}
