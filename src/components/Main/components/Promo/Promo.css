@@ -1,6 +1,7 @@
 .promo {
     background: #073042;
     height: 560px;
+    padding-top: 50px;
 }
 
 .promo__content{
@@ -8,7 +9,6 @@
     max-width: 1280px;
     margin: 0 auto 0 auto;
     position: relative;
-    border: 1px solid red;
 }
 
 .promo__title {
@@ -19,10 +19,9 @@
     line-height: 52px;
     letter-spacing: -0.04em;
     color: #FFFFFF;
-    width: 626px;
+    max-width: 626px;
     text-align: left;
-    margin: 50px 0 0 70px;
-    position: absolute;
+    margin: 0 0 0 70px;
 }
 
 .promo__picture {
@@ -33,4 +32,50 @@
     right: 0;
     bottom: 0;
     margin: 0 70px 60px 0;
+}
+
+@media screen and (max-width: 820px) {
+
+    .promo {
+        height: 100%;
+        padding: 300px 0 70px 0;
+    }
+
+    .promo__title {
+        max-width: 680px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .promo__picture {
+        width: 680px;
+        height: 230px;
+        position: static;
+        margin: 140px auto 0 auto;
+        background-size: cover;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .promo {
+        padding: 183px 0 40px 0;
+    }
+    .promo__title {
+        font-size: 31px;
+        line-height: 39px;
+        max-width: 300px;
+        margin: 0 auto 0 auto;
+    }
+
+    .promo__content{
+        max-width: 320px;
+    }
+
+    .promo__picture {
+        background-image: url(../../../../images/promo-logo-320.svg);
+        max-width: 320px;
+        margin: 60px 0 0 0;
+    }
 }

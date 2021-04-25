@@ -9,7 +9,6 @@
     margin: 0 auto 0 auto;
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
 }
 
 .nav-bar__logo {
@@ -62,4 +61,35 @@
     align-items: center;
     gap: 30px;
     margin-right: 70px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-tab__left-block{
+        margin: 18px 0 0 30px;
+    }
+
+    .nav-tab__right-block{
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .nav-tab__left-block{
+        margin: 18px 0 0 14px;
+    }
+
+    .nav-tab__signup-link {
+        font-size: 10px;
+    }
+
+    .nav-tab__signin-button{
+        font-size: 10px;
+        width: 54px;
+        height: 26px;
+    }
+
+    .nav-tab__right-block{
+        gap: 14px;
+        margin-right: 14px;
+    }
 }

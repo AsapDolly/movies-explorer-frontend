@@ -5,6 +5,7 @@ import AboutProject from './components/AboutProject/AboutProject';
 import Techs from './components/Techs/Techs';
 import AboutMe from './components/AboutMe/AboutMe';
 import Portfolio from './components/Portfolio/Portfolio';
+import Footer from '../Footer/Footer';
 
 function Main() {
 
@@ -16,6 +17,7 @@ function Main() {
             <Techs/>
             <AboutMe/>
             <Portfolio/>
+            <Footer/>
         </main>
     )
 }
