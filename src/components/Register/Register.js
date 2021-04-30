@@ -63,7 +63,7 @@ function Register({handleRegister}) {
 
                     <label className="register__input-label">
                         Пароль
-                        <input className="register__input"
+                        <input className="register__input register__input_type_password"
                                id="register-password"
                                name="password"
                                type="password"

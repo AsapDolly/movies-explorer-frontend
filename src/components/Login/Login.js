@@ -49,7 +49,7 @@ function Login({handleLogin}) {
 
                     <label className="login__input-label">
                         Пароль
-                        <input className="login__input"
+                        <input className="login__input login__input_type_password"
                                id="login-password"
                                name="password"
                                type="password"

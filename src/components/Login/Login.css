@@ -57,6 +57,13 @@
     width: 396px;
 }
 
+.login__input_type_password {
+    font: small-caption;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 17px;
+}
+
 .login__input_email {
     font-weight: 500;
 }
@@ -83,7 +90,7 @@
 }
 
 .login__button:hover {
-    opacity: 0.85;
+    opacity: 0.7;
     transition: opacity 0.5s;
 }
 
@@ -104,8 +111,15 @@
 }
 
 .login__signin-text_link:hover {
-    opacity: 0.85;
+    opacity: 0.7;
     transition: opacity 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+
+    .login__logo {
+        margin: 232px 0 0 0;
+    }
 }
 
 @media screen and (max-width: 410px) {
@@ -141,5 +155,6 @@
     .login__signin-text {
         font-size: 12px;
         line-height: 15px;
+        margin-top: 14px;
     }
 }

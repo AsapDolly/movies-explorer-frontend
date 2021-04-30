@@ -1,0 +1,117 @@
+.saved-movies-card {
+    background: #FDFDFD;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.saved-movies-card__information {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 18px*2);
+    margin-top: 18px;
+}
+
+.saved-movies-card__title{
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    margin: 0;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.saved-movies-card__duration {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+.saved-movies-card__image {
+    object-fit: cover;
+    width: 360px;
+    height: 200px;
+    margin-top: 18px;
+}
+
+.saved-movies-card__delete-button {
+    background-image: url(../../../../images/delete-button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    margin: 18px 0;
+    width: 100px;
+    height: 29px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 11px;
+    color: #000000;
+    background-color: #F9F9F9;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.saved-movies-card__delete-button:hover {
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .saved-movies-card {
+        max-width: 342px;
+    }
+
+    .saved-movies-card__image {
+        width: 342px;
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .saved-movies-card {
+        max-width: 300px;
+    }
+
+    .saved-movies-card__image {
+        width: 300px;
+        height: 168px;
+        margin-top: 14px;
+    }
+
+    .saved-movies-card__information {
+        width: calc(100% - 14px*2);
+        margin-top: 14px;
+    }
+
+    .saved-movies-card__title{
+        font-size: 12px;
+    }
+
+    .saved-movies-card__duration {
+        font-size: 10px;
+    }
+
+    .saved-movies-card__delete-button {
+        margin: 14px 0;
+    }
+
+}

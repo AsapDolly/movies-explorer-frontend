@@ -57,6 +57,13 @@
     width: 396px;
 }
 
+.register__input_type_password {
+    font: small-caption;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 17px;
+}
+
 .register__input_email {
     font-weight: 500;
 }
@@ -83,7 +90,7 @@
 }
 
 .register__button:hover {
-    opacity: 0.85;
+    opacity: 0.7;
     transition: opacity 0.5s;
 }
 
@@ -101,11 +108,19 @@
 .register__signin-text_link {
     color: #3456F3;
     text-decoration: none;
+    margin-left: 4px;
 }
 
 .register__signin-text_link:hover {
-    opacity: 0.85;
+    opacity: 0.7;
     transition: opacity 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+
+    .register__logo {
+        margin: 232px 0 0 0;
+    }
 }
 
 @media screen and (max-width: 410px) {
@@ -141,5 +156,7 @@
     .register__signin-text {
         font-size: 12px;
         line-height: 15px;
+        margin-top: 14px;
     }
+
 }
