@@ -1,15 +1,20 @@
 import React from 'react';
+import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 
-function Profile({}) {
+function Profile({handleLogout, handleChangeUserData}) {
 
-    React.useEffect(() => {
-        setData({name: 'Виталий', email: 'pochta@yandex.ru'});
-    }, []);
+    const currentUser = React.useContext(CurrentUserContext);
 
     const [data, setData] = React.useState({
-        name: '',
         email: '',
+        name: '',
     });
+
+    React.useEffect(() => {
+        setData({email: currentUser.email, name: currentUser.name});
+    }, []);
+
+    const [isEdit, setIsEdit] = React.useState(false);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -21,10 +26,19 @@ function Profile({}) {
 
     }
 
+    const handleEditProfile = () => {
+        setIsEdit(true);
+    }
+
+    const handleSave = () => {
+        handleChangeUserData(data);
+        setIsEdit(false);
+    }
+
     return (
         <section className='profile'>
 
-            <h1 className="profile__title">Привет, {'Виталий'}!</h1>
+            <h1 className="profile__title">Привет, {data.name}!</h1>
             <div className="profile__input-list">
 
                 <label className="profile__input-label">
@@ -38,6 +52,7 @@ function Profile({}) {
                            maxLength="40"
                            value={data.name}
                            onChange={handleChange}
+                           readOnly={!isEdit}
                     />
                 </label>
 
@@ -52,17 +67,25 @@ function Profile({}) {
                            maxLength="40"
                            value={data.email}
                            onChange={handleChange}
+                           readOnly={!isEdit}
                     />
                     <div className="profile__input-label_error">Что-то пошло не так...</div>
                 </label>
 
             </div>
 
-            <div className='profile__bottom-buttons'>
-                <button className="profile__button">Редактировать</button>
-                <button className="profile__button profile__button_color_red">Выйти из аккаунта
-                </button>
-            </div>
+            {
+                isEdit
+                    ?
+                    <button className="profile__save-button" onClick={handleSave}>Сохранить</button>
+                    :
+                    <div className='profile__bottom-buttons'>
+                        <button className="profile__button" onClick={handleEditProfile}>Редактировать</button>
+                        <button className="profile__button profile__button_color_red" onClick={handleLogout}>
+                            Выйти из аккаунта
+                        </button>
+                    </div>
+            }
 
         </section>
     )

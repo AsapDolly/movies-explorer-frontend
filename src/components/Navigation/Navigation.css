@@ -1,41 +1,53 @@
-#menu__toggle {
+.navigation__toggle {
     opacity: 0;
     display: none;
 }
 
-#menu__toggle:checked ~ .menu__btn > span {
+.navigation__toggle:checked ~ .navigation__menu-button > .navigation__menu-icon {
     transform: rotate(45deg);
     position: fixed;
 }
 
-#menu__toggle:checked ~ .menu__btn > span::before {
+.navigation__toggle:checked ~ .navigation__menu-button > .navigation__menu-icon::before {
     top: 0;
     transform: rotate(0);
     position: fixed;
 }
 
-#menu__toggle:checked ~ .menu__btn > span::after {
+.navigation__toggle:checked ~ .navigation__menu-button > .navigation__menu-icon::after {
     top: 0;
     transform: rotate(90deg);
     position: fixed;
 }
 
-#menu__toggle:checked ~ .menu__box {
+.navigation__toggle:checked ~ .navigation__menu-button > .navigation__menu-button_color_white {
+    background-color: #000000;
+}
+
+.navigation__toggle:checked ~ .navigation__menu-button_color_white > .navigation__menu-icon::before {
+    background-color: #000000;
+}
+
+.navigation__toggle:checked ~ .navigation__menu-button_color_white > .navigation__menu-icon::after {
+    background-color: #000000;
+}
+
+.navigation__toggle:checked ~ .navigation__menu-panel {
     visibility: visible;
     right: 0;
 }
 
-#menu__toggle:checked ~ .navigation__background {
+.navigation__toggle:checked ~ .navigation__background {
     visibility: visible;
     opacity: 0.3;
 }
 
-.hamburger-menu {
+.navigation {
     height: 44px;
     width: 44px;
 }
 
-.menu__btn {
+.navigation__menu-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,14 +58,14 @@
     z-index: 3;
 }
 
-.menu__btn:hover {
+.navigation__menu-button:hover {
     opacity: 0.7;
     transition: opacity 0.7s;
 }
 
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
+.navigation__menu-button > .navigation__menu-icon,
+.navigation__menu-button > .navigation__menu-icon::before,
+.navigation__menu-button > .navigation__menu-icon::after {
     display: block;
     position: absolute;
     width: 28px;
@@ -62,17 +74,23 @@
     transition-duration: .25s;
 }
 
-.menu__btn > span::before {
+.navigation__menu-button_color_white > .navigation__menu-icon,
+.navigation__menu-button_color_white > .navigation__menu-icon::before,
+.navigation__menu-button_color_white > .navigation__menu-icon::after {
+    background-color: #FFFFFF;
+}
+
+.navigation__menu-button > .navigation__menu-icon::before {
     content: '';
     top: -10px;
 }
 
-.menu__btn > span::after {
+.navigation__menu-button > .navigation__menu-icon::after {
     content: '';
     top: 10px;
 }
 
-.menu__box {
+.navigation__menu-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +106,7 @@
     z-index: 2;
 }
 
-.menu__list {
+.navigation__links-list {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -98,7 +116,7 @@
     padding: 0;
 }
 
-.menu__item {
+.navigation__link {
     display: flex;
     color: #000000;
     font-family: 'Inter', Arial, sans-serif;
@@ -112,13 +130,13 @@
     border-bottom: 2px solid transparent;
 }
 
-.menu__item_current-item {
-    border-bottom: 2px solid #000000;
-}
-
-.menu__item:hover {
+.navigation__link:hover {
     opacity: 0.7;
     transition: opacity 0.7s;
+}
+
+.navigation__link_current {
+    border-bottom: 2px solid #000000;
 }
 
 .navigation__profile-link {
@@ -168,28 +186,28 @@
 }
 
 @media screen and (min-width: 769px) {
-    .hamburger-menu {
+    .navigation {
         display: none;
     }
 }
 
 @media screen and (max-width: 520px) {
 
-    .menu__btn > span,
-    .menu__btn > span::before,
-    .menu__btn > span::after {
+    .navigation__menu-button > .navigation__menu-icon,
+    .navigation__menu-button > .navigation__menu-icon::before,
+    .navigation__menu-button > .navigation__menu-icon::after {
         width: 22px;
     }
 
-    .menu__btn > span::before {
+    .navigation__menu-button > .navigation__menu-icon::before {
         top: -9px;
     }
 
-    .menu__btn > span::after {
+    .navigation__menu-button > .navigation__menu-icon::after {
         top: 9px;
     }
 
-    .menu__box {
+    .navigation__menu-panel {
         width: 100%;
         height: 100%;
     }
@@ -198,7 +216,7 @@
         margin: 0 0 42px 0;
     }
 
-    .menu__list {
+    .navigation__links-list {
         gap: 18px;
         margin: 144px 0 0 0;
     }

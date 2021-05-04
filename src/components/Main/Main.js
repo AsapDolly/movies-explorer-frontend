@@ -6,11 +6,13 @@ import Techs from './components/Techs/Techs';
 import AboutMe from './components/AboutMe/AboutMe';
 import Portfolio from './components/Portfolio/Portfolio';
 
-function Main() {
+function Main({loggedIn}) {
 
     return (
         <main>
-            <NavTab/>
+            <NavTab
+                loggedIn={loggedIn}
+            />
             <Promo/>
             <AboutProject/>
             <Techs/>

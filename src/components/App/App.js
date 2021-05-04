@@ -9,11 +9,17 @@ import Login from '../Login/Login';
 import Profile from "../Profile/Profile";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import {Route, Switch, useHistory} from 'react-router-dom';
+import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 
 function App() {
     const history = useHistory();
     const [cards, setCards] = React.useState(null);
     const [savedMovies, setSavedMovies] = React.useState(null);
+    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [currentUser, setCurrentUser] = React.useState({
+        email: '',
+        name: ''
+    });
 
     React.useEffect(() => {
         fetch('https://api.nomoreparties.co/beatfilm-movies')
@@ -25,10 +31,27 @@ function App() {
     }, []);
 
     function handleLogin(email, password) {
+        setCurrentUser({email: email, name: email});
+        setLoggedIn(true);
         history.push('/movies');
     }
 
+    function handleLogout(){
+        setLoggedIn(false);
+        setCurrentUser({
+            email: '',
+            name: ''
+        });
+        history.push('/');
+    }
+
+    function handleChangeUserData({email, name}) {
+        setCurrentUser({email, name});
+    }
+
     function handleRegister(name, email, password) {
+        setCurrentUser({email, name});
+        setLoggedIn(true);
         history.push('/movies');
     }
 
@@ -46,58 +69,66 @@ function App() {
     }
 
     return (
-        <div className="page">
-            <Switch>
+        <CurrentUserContext.Provider value={currentUser}>
+            <div className="page">
+                <Switch>
 
-                <Route exact path="/">
-                    <Main/>
-                    <Footer/>
-                </Route>
+                    <Route exact path="/">
+                        <Main
+                            loggedIn = {loggedIn}
+                        />
+                        <Footer/>
+                    </Route>
 
-                <Route path="/movies">
-                    <Header/>
-                    <Movies
-                        searchMovie={searchMovie}
-                        movieCards={cards}
-                        onCardSave={onCardSave}
-                    />
-                    <Footer/>
-                </Route>
+                    <Route path="/movies">
+                        <Header/>
+                        <Movies
+                            searchMovie={searchMovie}
+                            movieCards={cards}
+                            onCardSave={onCardSave}
+                        />
+                        <Footer/>
+                    </Route>
 
-                <Route path="/saved-movies">
-                    <Header/>
-                    <SavedMovies
-                        searchMovie={searchMovie}
-                        savedMovieCards={savedMovies}
-                        onCardDelete={onCardDelete}
-                    />
-                    <Footer/>
-                </Route>
+                    <Route path="/saved-movies">
+                        <Header/>
+                        <SavedMovies
+                            searchMovie={searchMovie}
+                            savedMovieCards={savedMovies}
+                            onCardDelete={onCardDelete}
+                        />
+                        <Footer/>
+                    </Route>
 
-                <Route path="/profile">
-                    <Header/>
-                    <Profile/>
-                </Route>
+                    <Route path="/profile">
+                        <Header/>
+                        <Profile
+                            handleLogout = {handleLogout}
+                            handleChangeUserData = {handleChangeUserData}
+                        />
+                    </Route>
 
-                <Route path="/signin">
-                    <Login
-                        handleLogin={handleLogin}
-                    />
-                </Route>
+                    <Route path="/signin">
+                        <Login
+                            handleLogin={handleLogin}
+                        />
+                    </Route>
 
-                <Route path="/signup">
-                    <Register
-                        handleRegister={handleRegister}
-                    />
-                </Route>
+                    <Route path="/signup">
+                        <Register
+                            handleRegister={handleRegister}
+                        />
+                    </Route>
 
-                <Route path="*">
-                    <PageNotFound/>
-                </Route>
+                    <Route path="*">
+                        <PageNotFound/>
+                    </Route>
 
-            </Switch>
+                </Switch>
 
-        </div>
+            </div>
+
+        </CurrentUserContext.Provider>
     );
 }
 
