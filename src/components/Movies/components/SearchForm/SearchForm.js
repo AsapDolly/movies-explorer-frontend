@@ -22,6 +22,7 @@ function SearchForm({searchMovie}) {
                        placeholder="Фильм"
                        value={movie}
                        onChange={handleChange}
+                       required
                 />
                 <button className='search-form__find-button' type='submit'/>
             </form>
