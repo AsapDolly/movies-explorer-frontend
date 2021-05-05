@@ -1,0 +1,102 @@
+.portfolio {
+    max-width: 1280px;
+    margin: 0 auto 0 auto;
+}
+
+.portfolio__title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    margin: 100px 0 0 70px;
+}
+
+.portfolio__list {
+    list-style: none;
+    margin: 50px 0 125px 70px;
+    padding: 0;
+    max-width: 1140px;
+    width: calc(100% - 70px*2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.portfolio__list-element {
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.portfolio__list-element:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.portfolio__link {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    color: #000000;
+    margin: 0;
+}
+
+.portfolio__arrow-link {
+    background-image: url(../../../../images/arrow-link-pic.svg);
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 17px;
+}
+
+.portfolio__arrow-link:hover {
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+
+@media screen and (max-width: 768px) {
+    .portfolio__title {
+        margin: 90px 0 0 50px;
+    }
+
+    .portfolio__list {
+        margin: 50px 0 90px 50px;
+        max-width: 668px;
+        width: calc(100% - 50px*2);
+    }
+
+    .portfolio__link {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .portfolio__title {
+        font-size: 14px;
+        margin: 70px 0 0 14px;
+    }
+
+    .portfolio__list {
+        margin: 40px auto 70px auto;
+        max-width: 522px;
+        width: calc(100% - 14px*2);
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .portfolio__arrow-link {
+        background-image: url(../../../../images/arrow-link-pic-320.svg);
+    }
+}

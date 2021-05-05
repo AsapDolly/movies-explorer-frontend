@@ -1,16 +1,16 @@
 .techs {
     background: #F5F5F5;
-    height: 625px;
 }
 
 .techs__content {
-    height: 100%;
     max-width: 1280px;
-    margin: 0 auto 0 auto;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
 
-.techs__title {
+.techs__running-title {
     max-width: 1140px;
     width: calc(100% - 70px*2);
     font-family: 'Inter', Arial, sans-serif;
@@ -20,15 +20,37 @@
     line-height: 27px;
     letter-spacing: -0.04em;
     border-bottom: 1px solid black;
-    margin: 100px 0 0 70px;
     padding-bottom: 23px;
+    margin: 100px 0 0 0;
+}
+
+.techs__title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    margin: 90px 0 0 0;
+}
+
+.techs__paragraph {
+    max-width: 460px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    margin: 26px 0 0 0;
 }
 
 .techs__stack {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 100px;
+    margin: 100px 0;
 }
 
 .techs__stack-element {
@@ -45,4 +67,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+
+    .techs__content {
+        max-width: 768px;
+    }
+
+    .techs__running-title {
+        max-width: 668px;
+        width: calc(100% - 50px*2);
+        margin: 90px auto 0 auto;
+    }
+
+    .techs__title {
+        margin: 80px 0 0 0;
+    }
+
+    .techs__paragraph {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 22px auto 0 auto;
+    }
+
+    .techs__stack {
+        margin: 83px 0 90px 0;
+    }
+
+    .techs__stack-element {
+        font-size: 12px;
+        line-height: 15px;
+        width: 84px;
+        height: 57px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .techs {
+        background: #FFFFFF;
+    }
+
+    .techs__content {
+        max-width: 320px;
+    }
+
+    .techs__running-title {
+        max-width: 284px;
+        width: calc(100% - 18px*2);
+        font-size: 18px;
+        line-height: 22px;
+        margin: 70px auto 0 auto;
+        padding-bottom: 28px;
+    }
+
+    .techs__title {
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: -0.04em;
+        margin: 60px 0 0 0;
+        text-align: center;
+    }
+
+    .techs__paragraph {
+        max-width: 292px;
+        font-size: 11px;
+        line-height: 16px;
+        margin: 24px auto 0 auto;
+    }
+
+    .techs__stack {
+        display: grid;
+        grid-template-columns: 84px 84px;
+        margin: 50px 0 70px 0;
+    }
 }

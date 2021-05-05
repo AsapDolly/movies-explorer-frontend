@@ -1,11 +1,128 @@
-.header {
-
+.header-tab {
+    height: 74px;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
-.header__left-block{
-
+.header-bar__logo {
+    background-image: url(../../images/header-logo.png);
+    width: 38px;
+    height: 38px;
 }
 
-.header__right-block{
+.header-tab__left-block{
+    margin: 18px 0 0 70px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
 
+.header-tab__navigation-links{
+    display: flex;
+    gap: 16px;
+    margin-left: 44px;
+}
+
+.header-tab__navigation-link {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.header-tab__navigation-link:hover {
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+.header-tab__navigation-link_bold {
+    font-weight: 500;
+}
+
+.header-tab__profile-link{
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.header-tab__profile-link:hover{
+    opacity: 0.7;
+    transition: opacity 0.6s;
+}
+
+.header-tab__profile-icon{
+    background-image: url(../../images/profile-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F9F9F9;
+    border-radius: 4px;
+    width: 26px;
+    height: 30px;
+}
+
+.header-tab__right-block{
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    width: 100px;
+    height: 30px;
+    margin: 21px 70px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .header-tab__left-block{
+        margin: 18px 0 0 30px;
+    }
+
+    .header-tab__right-block{
+        margin-right: 30px;
+        justify-content: flex-end;
+    }
+
+    .header-tab__profile-link {
+        display: none;
+    }
+
+    .header-tab__profile-icon {
+        display: none;
+    }
+
+    .header-tab__navigation-links {
+        display: none;
+    }
+
+    .header-tab__navigation-link_bold {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .header-tab__left-block{
+        margin: 18px 0 0 14px;
+    }
+
+    .header-tab__signup-link {
+        font-size: 10px;
+    }
+
+    .header-tab__signin-button{
+        font-size: 10px;
+        width: 54px;
+        height: 26px;
+    }
+
+    .header-tab__right-block{
+        gap: 14px;
+        margin-right: 14px;
+    }
 }

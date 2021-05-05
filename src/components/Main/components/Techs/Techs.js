@@ -5,28 +5,11 @@ function Techs() {
     return (
         <section className='techs'>
             <div className='techs__content'>
-                <h2 className='techs__title'>Технологии</h2>
-                <div className='about-project__description-area'>
-                    <div className='about-project__description-block'>
-                        <h2 className='about-project__description-title'>
-                            Дипломный проект включал 5 этапов
-                        </h2>
-                        <p className='about-project__description-paragraph'>
-                            Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные
-                            доработки.
-                        </p>
-                    </div>
+                <h3 className='techs__running-title'>Технологии</h3>
 
-                    <div className='about-project__description-block'>
-                        <h2 className='about-project__description-title'>
-                            На выполнение диплома ушло 5 недель
-                        </h2>
-                        <p className='about-project__description-paragraph'>
-                            У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно
-                            защититься.
-                        </p>
-                    </div>
-                </div>
+                <h2 className='techs__title'>7 технологий</h2>
+                <p className='techs__paragraph'>На курсе веб-разработки мы освоили технологии, которые применили в
+                    дипломном проекте.</p>
 
                 <div className='techs__stack'>
                     <div className='techs__stack-element'>HTML</div>
