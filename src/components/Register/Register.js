@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
 function Register({handleRegister}) {
@@ -9,6 +9,14 @@ function Register({handleRegister}) {
         password: '',
     });
 
+    const [errors, setErrors] = React.useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+
+    const [isValid, setIsValid] = React.useState(false);
+
     const handleChange = (e) => {
         const {name, value} = e.target;
 
@@ -16,12 +24,27 @@ function Register({handleRegister}) {
             ...data,
             [name]: value
         });
-
+        setErrors({...errors, [name]: e.target.validationMessage});
+        setIsValid(e.target.closest("form").checkValidity());
     }
+
+    const resetForm = useCallback(
+        (newData = {name: '', email: '', password: ''}, newErrors = {
+            name: '',
+            email: '',
+            password: ''
+        }, newIsValid = false) => {
+            setData(newData);
+            setErrors(newErrors);
+            setIsValid(newIsValid);
+        },
+        [setData, setErrors, setIsValid]
+    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
         handleRegister(data.name, data.email, data.password);
+        resetForm();
     }
 
     return (
@@ -31,38 +54,40 @@ function Register({handleRegister}) {
             </Link>
 
             <form className="register__form" onSubmit={handleSubmit} noValidate>
+
                 <h1 className="register__title">Добро пожаловать!</h1>
                 <div className="register__input-list">
-                    <label className="register__input-label">
-                        Имя
+                    <div>
+                        <label htmlFor="name" className="register__input-label">Имя</label>
                         <input className="register__input"
                                id="register-name"
                                name="name"
                                type="text"
                                required
-                               minLength="2"
-                               maxLength="40"
+                               pattern="^[a-zA-ZА-Яа-яЁё\s\-]+$"
                                value={data.name}
                                onChange={handleChange}
                         />
-                    </label>
+                        <div className="register__input-label_error">{errors.name}</div>
+                    </div>
 
-                    <label className="register__input-label">
-                        E-mail
+                    <div>
+                        <label htmlFor="email" className="register__input-label">E-mail</label>
                         <input className="register__input register__input_email"
                                id="register-email"
                                name="email"
-                               type="text"
+                               type="email"
                                required
                                minLength="2"
                                maxLength="40"
                                value={data.email}
                                onChange={handleChange}
                         />
-                    </label>
+                        <div className="register__input-label_error">{errors.email}</div>
+                    </div>
 
-                    <label className="register__input-label">
-                        Пароль
+                    <div>
+                        <label htmlFor="password" className="register__input-label">Пароль</label>
                         <input className="register__input register__input_type_password"
                                id="register-password"
                                name="password"
@@ -73,12 +98,13 @@ function Register({handleRegister}) {
                                value={data.password}
                                onChange={handleChange}
                         />
-
-                        <div className="register__input-label_error">Что-то пошло не так...</div>
-                    </label>
-
+                        <div className="register__input-label_error">{errors.password}</div>
+                    </div>
                 </div>
-                <button className="register__button" type="submit">Зарегистрироваться</button>
+
+                <button className={`register__button ${!isValid && 'register__button-blocked'}`} type="submit"
+                        disabled={!isValid}>Зарегистрироваться
+                </button>
 
                 <div className="register__signin-text">
                     Уже зарегистрированы?{' '}

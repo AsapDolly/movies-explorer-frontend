@@ -44,10 +44,13 @@
 }
 
 .profile__input-label_error {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
     color: #FF3055;
-    padding-top: 6px;
-    position: absolute;
-    display: none;
+    margin-top: 6px;
 }
 
 .profile__input {
@@ -119,6 +122,11 @@
     transition: opacity 0.6s;
 }
 
+.profile__save-button-blocked{
+    color: #C2C2C2;
+    background: #F8F8F8;
+    cursor: auto;
+}
 @media screen and (max-width: 768px) {
 
     .profile__title {

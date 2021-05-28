@@ -36,10 +36,14 @@
 }
 
 .register__input-label_error {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
     color: #FF3055;
-    padding-top: 6px;
+    margin-top: 6px;
     position: absolute;
-    display: none;
 }
 
 .register__input {
@@ -92,6 +96,12 @@
 .register__button:hover {
     opacity: 0.7;
     transition: opacity 0.5s;
+}
+
+.register__button-blocked{
+    color: #C2C2C2;
+    background: #F8F8F8;
+    cursor: auto;
 }
 
 .register__signin-text {

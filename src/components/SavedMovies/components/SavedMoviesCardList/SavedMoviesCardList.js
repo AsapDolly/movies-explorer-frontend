@@ -9,7 +9,7 @@ function SavedMoviesCardList({savedMovieCards, onCardDelete}) {
 
                 {savedMovieCards.map((props) => (
                     <SavedMoviesCard
-                        key={props.id}
+                        key={props._id}
                         onCardDelete={onCardDelete}
                         {...props}
                     />)

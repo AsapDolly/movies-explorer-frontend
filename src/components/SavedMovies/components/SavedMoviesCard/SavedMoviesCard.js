@@ -3,10 +3,8 @@ import notFoundImage from '../../../../images/image-not-found.jpg';
 
 function SavedMoviesCard({onCardDelete, ...props}) {
 
-    const BASE_URL = 'https://api.nomoreparties.co';
-
     function handleDeleteMovieClick() {
-        onCardDelete(props.id);
+        onCardDelete(props._id);
     }
 
     return (
@@ -17,7 +15,7 @@ function SavedMoviesCard({onCardDelete, ...props}) {
             </div>
 
             {props.image ?
-                <img className='saved-movies-card__image' alt={props.nameEN} src={`${BASE_URL}${props.image.url}`}/> :
+                <img className='saved-movies-card__image' alt={props.nameEN} src={props.image}/> :
                 <img className='saved-movies-card__image' alt='нет изображения' src={notFoundImage} />}
 
             <button className='saved-movies-card__delete-button' onClick={handleDeleteMovieClick} type="button"/>

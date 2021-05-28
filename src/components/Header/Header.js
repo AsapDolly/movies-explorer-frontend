@@ -5,8 +5,7 @@ import Navigation from "../Navigation/Navigation";
 function Header() {
 
     const location = useLocation();
-
-
+    
     return (
         <nav className='header-tab'>
             <div className='header-tab__left-block'>
@@ -18,7 +17,8 @@ function Header() {
                           className={`header-tab__navigation-link ${location.pathname === '/movies' && 'header-tab__navigation-link_bold'}`}>
                         Фильмы
                     </Link>
-                    <Link to="/saved-movies" className={`header-tab__navigation-link ${location.pathname === '/saved-movies' && 'header-tab__navigation-link_bold'}`}>
+                    <Link to="/saved-movies"
+                          className={`header-tab__navigation-link ${location.pathname === '/saved-movies' && 'header-tab__navigation-link_bold'}`}>
                         Сохранённые фильмы
                     </Link>
                 </div>
