@@ -1,3 +1,3 @@
 # movies-explorer-frontend
-Вся фронтенд часть нашего приложения
+http://imekov.bitfilms.nomoredomains.icu
 level-3

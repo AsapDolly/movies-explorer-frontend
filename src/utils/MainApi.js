@@ -87,7 +87,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'http://api.imekov.bitfilms.nomoredomains.icu',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
