@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
 function Login({handleLogin}) {
@@ -8,6 +8,13 @@ function Login({handleLogin}) {
         password: '',
     });
 
+    const [errors, setErrors] = React.useState({
+        email: '',
+        password: '',
+    });
+
+    const [isValid, setIsValid] = React.useState(false);
+
     const handleChange = (e) => {
         const {name, value} = e.target;
 
@@ -15,12 +22,23 @@ function Login({handleLogin}) {
             ...data,
             [name]: value
         });
-
+        setErrors({...errors, [name]: e.target.validationMessage});
+        setIsValid(e.target.closest("form").checkValidity());
     }
+
+    const resetForm = useCallback(
+        (newData = {email: '', password: ''}, newErrors = {email: '', password: ''}, newIsValid = false) => {
+            setData(newData);
+            setErrors(newErrors);
+            setIsValid(newIsValid);
+        },
+        [setData, setErrors, setIsValid]
+    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
         handleLogin(data.email, data.password);
+        resetForm();
     }
 
     return (
@@ -33,22 +51,23 @@ function Login({handleLogin}) {
                 <h1 className="login__title">Рады видеть!</h1>
                 <div className="login__input-list">
 
-                    <label className="login__input-label">
-                        E-mail
+                    <div>
+                        <label htmlFor="email" className="login__input-label">E-mail</label>
                         <input className="login__input login__input_email"
                                id="login-email"
                                name="email"
-                               type="text"
+                               type="email"
                                required
                                minLength="2"
                                maxLength="40"
                                value={data.email}
                                onChange={handleChange}
                         />
-                    </label>
+                        <div className="login__input-label_error">{errors.email}</div>
+                    </div>
 
-                    <label className="login__input-label">
-                        Пароль
+                    <div>
+                        <label htmlFor="password" className="login__input-label">Пароль</label>
                         <input className="login__input login__input_type_password"
                                id="login-password"
                                name="password"
@@ -59,12 +78,12 @@ function Login({handleLogin}) {
                                value={data.password}
                                onChange={handleChange}
                         />
-
-                        <div className="login__input-label_error">Что-то пошло не так...</div>
-                    </label>
+                        <div className="login__input-label_error">{errors.password}</div>
+                    </div>
 
                 </div>
-                <button className="login__button" type="submit">Войти</button>
+
+                <button className={`login__button ${!isValid && 'login__button-blocked'}`} type="submit" disabled={!isValid}>Войти</button>
 
                 <div className="login__signin-text">
                     Ещё не зарегистрированы?{' '}

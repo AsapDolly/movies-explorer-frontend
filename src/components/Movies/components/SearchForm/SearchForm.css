@@ -14,7 +14,7 @@
 
 .search-form-input {
     outline: 0;
-    border-width: 0;
+    border: 1px solid transparent;
     background: #F9F9F9;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -30,6 +30,10 @@
 
 .search-form-input::placeholder {
     color: #A0A0A0;
+}
+
+.search-form-input_invalid {
+    border: 1px solid #ffdddd;
 }
 
 .search-form__find-button {
@@ -52,6 +56,22 @@
 .search-form__demarcation-line{
     border: 1px solid #E8E8E8;
     margin-top: 39px;
+}
+
+.search-form__error {
+    position: absolute;
+    display: none;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 12px;
+    color: #ff0000;
+    margin: 5px 0 0 10px;
+}
+
+.search-form__error_display {
+    display: block;
 }
 
 @media screen and (max-width: 768px) {
